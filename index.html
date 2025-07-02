@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Results by Exam Date</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    select, table {
+      margin-top: 15px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Select Exam Date to View Results</h2>
+
+  <label for="examDate">Exam Date:</label>
+  <select id="examDate" onchange="showResults()">
+    <option value="">--Select a Date--</option>
+    <option value="2025-06-01">2025-06-01</option>
+    <option value="2025-06-15">2025-06-15</option>
+    <option value="2025-07-01">2025-07-01</option>
+  </select>
+
+  <div id="resultsContainer"></div>
+
+  <script>
+    const studentResults = {
+      "2025-06-01": [
+        { name: "Alice Johnson", subject: "Math", score: 88 },
+        { name: "Bob Smith", subject: "Math", score: 92 }
+      ],
+      "2025-06-15": [
+        { name: "Charlie Lee", subject: "Science", score: 75 },
+        { name: "Dana White", subject: "Science", score: 83 }
+      ],
+      "2025-07-01": [
+        { name: "Evan Green", subject: "English", score: 90 },
+        { name: "Fiona Blue", subject: "English", score: 95 }
+      ]
+    };
+
+    function showResults() {
+      const date = document.getElementById("examDate").value;
+      const container = document.getElementById("resultsContainer");
+      container.innerHTML = "";
+
+      if (studentResults[date]) {
+        let html = "<table><tr><th>Name</th><th>Subject</th><th>Score</th></tr>";
+        studentResults[date].forEach(student => {
+          html += `<tr><td>${student.name}</td><td>${student.subject}</td><td>${student.score}</td></tr>`;
+        });
+        html += "</table>";
+        container.innerHTML = html;
+      } else if (date) {
+        container.innerHTML = "<p>No results found for this date.</p>";
+      }
+    }
+  </script>
+
+</body>
+</html>
