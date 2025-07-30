@@ -27,32 +27,22 @@
 </head>
 <body>
 
-  <h2>DCA Third Term Exam Result</h2>
+  <h2>DCA Course Final Result</h2>
 
   <label for="examDate">Select Exam Date to View Results:</label>
   <select id="examDate" onchange="showResults()">
     <option value="">--Select a Date--</option>
-    <option value="2025-06-01">2025-06-01</option>
-    <option value="2025-06-15">2025-06-15</option>
-    <option value="2025-07-01">2025-07-01</option>
+    <option value="29-07-2025">29-07-2025</option>
   </select>
 
   <div id="resultsContainer"></div>
 
   <script>
     const studentResults = {
-      "2025-06-01": [
-        { name: "Alice Johnson", subject: "Math", score: 88 },
-        { name: "Bob Smith", subject: "Math", score: 92 }
+      "29-07-2025": [
+        { name: "Debajit Datta", subject: "DCA (Theory & Practical)", score: 76 },
+        { name: "Krish Kumar Bin", subject: "DCA (Theory & Practical)", score: 82 }
       ],
-      "2025-06-15": [
-        { name: "Charlie Lee", subject: "Science", score: 75 },
-        { name: "Dana White", subject: "Science", score: 83 }
-      ],
-      "2025-07-01": [
-        { name: "Evan Green", subject: "English", score: 90 },
-        { name: "Fiona Blue", subject: "English", score: 95 }
-      ]
     };
 
     function showResults() {
